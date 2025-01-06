@@ -34,10 +34,6 @@ Follow these steps to set up and run the project on your local machine:
    ```
 
 2. **Install Dependencies:**
-   Ensure you have the necessary package manager installed (e.g., npm for Node.js, yarn). Then run:
-   ```bash
-   <dependency-manager> install
-   ```
    ```bash
    yarn
    ```
@@ -61,10 +57,6 @@ Follow these steps to set up and run the project on your local machine:
 
 4. **Run the Application:**
    Start the project locally using the appropriate command:
-   ```bash
-   <start-command>
-   ```
-   
    ```bash
    yarn dev
    ```
