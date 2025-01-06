@@ -8,12 +8,10 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 function Page() {
-  const [stockResult, setStockresult] = useState<stockResult | undefined>(
-    undefined
-  );
+  const [stockResult, setStockresult] = useState<any>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [stockData, setStockData] = useState<stockData | undefined>(undefined);
+  const [stockData, setStockData] = useState<any>(undefined);
   const [ticker,setTicker]=useState("AAPL");
   const [toggle,setToggle]=useState(true)
 
