@@ -14,172 +14,104 @@
   </p>
 </p>
 
-# :construction: Under Active Development
+2# Project README
 
-> Our focus is on establishing core functionality and essential features. As we continue to develop Omniplex, we are committed to implementing best practices, refining the codebase, and introducing new features to enhance the user experience.
+## Table of Contents
+- [Setup and Running Locally](#setup-and-running-locally)
+- [Approach to Tasks](#approach-to-tasks)
+- [Challenges and Solutions](#challenges-and-solutions)
 
-## Get started
+---
 
-To run the project, modify the code in the Chat component to use the `// Development Code`.
+## Setup and Running Locally
 
-1. Fork & Clone the repository
+Follow these steps to set up and run the project on your local machine:
 
-```bash
-git clone git@github.com:[YOUR_GITHUB_ACCOUNT]/omniplex.git
-```
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/SatadipIITG11/my-omniplex.git
+   cd my-omniplex
+   ```
 
-2. Install the dependencies
+2. **Install Dependencies:**
+   Ensure you have the necessary package manager installed (e.g., npm for Node.js, yarn). Then run:
+   ```bash
+   <dependency-manager> install
+   ```
+   ```bash
+   yarn
+   ```
 
-```bash
-yarn
-```
+3. **Configure Environment Variables:**
+   Create a `.env.local` file in the root directory and provide the necessary configuration values. For example:
+   ```env.local
+      BING_API_KEY=
+      OPENAI_API_KEY=
+      OPENWEATHERMAP_API_KEY=
+      ALPHA_VANTAGE_API_KEY=
+      FINNHUB_API_KEY=
+      NEXT_PUBLIC_FIREBASE_API_KEY=
+      NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+      NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+      NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+      NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+      NEXT_PUBLIC_FIREBASE_APP_ID=
+      NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=
+   ```
 
-3. Fill out secrets in `.env.local`
+4. **Run the Application:**
+   Start the project locally using the appropriate command:
+   ```bash
+   <start-command>
+   ```
+   
+   ```bash
+   yarn dev
+   ```
 
-```bash
-BING_API_KEY=
-OPENAI_API_KEY=
+5. **Access the Application:**
+   Open your web browser and navigate to:
+   ```
+   http://localhost:<port>
+   ```
+   Replace `<port>` with the port specified in your configuration (default is usually 3000).
 
-OPENWEATHERMAP_API_KEY=
-ALPHA_VANTAGE_API_KEY=
-FINNHUB_API_KEY=
-```
+---
 
-4. Run the development server
+## Approach to Tasks
 
-```bash
-yarn dev
-```
+### 1. **Planning and Research:**
+   - Defined project requirements and broke them into manageable tasks.
+   - Researched best practices and tools relevant to the tasks. 
+   - **I have integrated RapidAPI into the plugin section, creating two features:**
+      Stock Details: Accessible via the /plugins/stocks route, this feature retrieves detailed stock information for various companies.
+      Popular Movies: Available at the /plugins/movies route, this feature provides information about currently trending movies.
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
-## Plugins Development
+### 2. **Development Tools and AI Integration:**
+   - **AI Tools Used:**
+     - OpenAI's GPT for generating code snippets, documentation, and debugging suggestions.
+     - Basically the main concept was to avoid redundant tasks by using ChatGpt.
 
-> This is just a hacky way but very easy to implement. We will be adding a more robust way to add plugins in the future. Feel free to understand from the sample plugin we have added.
+   - **Development Process:**
+     - Iterative development approach to ensure features were built incrementally.
+     - Emphasized modularity and readability in code design.
+---
 
-1. Update the types in `types.ts` to include the new plugin data types.
-2. Update the `tools` api in `api` to include the new plugin function call.
-3. Update the `api.ts` in `utils` file to include the new plugin data.
-4. Update the `chatSlice.ts` in `store` to include the new plugin reducer.
-5. Create a new folder in the `components` directory for the UI of the plugin.
-6. Update the `chat.tsx` to handle the new plugin in `useEffect`.
-7. Call the plugin function and return the data as props to source.
-8. Update the `source.ts` to use the plugin UI.
-9. Lastly Update the `data.ts` in `utils` to show in the plugin tab.
+## Challenges and Solutions
 
-## Multi-LLM Support: Example
+### 1. **Challenge:** Handling Complex Logic
+   - **Problem:** Translating abstract requirements into efficient code.
+   - **Solution:** Leveraged AI tools to generate initial code drafts, then iteratively refined them.
 
-1. Add the new LLM apiKey in env and add the related npm package.
+### 2. **Challenge:** Debugging Performance Issues
+   - **Problem:** Slow response times in certain modules.
+   - **Solution:** Used profiling tools to identify bottlenecks and refactored inefficient code paths.
 
-```bash
-ANTHROPIC_API_KEY=******
-```
+### 2. **Challenge:** Finding rapid apis
+   - **Problem:** Many rapid apis were paid So I have to explore a lot of free api which would suit the project
+   - **Solution:** Got suggestions from LLM and discussions platform like reddit etc
 
-2. Update the `chat` in `api`
+---
 
-```ts
-import Anthropic from "@anthropic-ai/sdk";
-import { OpenAIStream, StreamingTextResponse } from "ai";
-
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
-
-export const runtime = "edge";
-
-export async function POST(req: Request) {
-  const {
-    messages,
-    model,
-    temperature,
-    max_tokens,
-    top_p,
-    frequency_penalty,
-    presence_penalty,
-  } = await req.json();
-
-  const response = await anthropic.messages.create({
-    stream: true,
-    model: model,
-    temperature: temperature,
-    max_tokens: max_tokens,
-    top_p: top_p,
-    frequency_penalty: frequency_penalty,
-    presence_penalty: presence_penalty,
-    messages: messages,
-  });
-
-  const stream = OpenAIStream(response);
-  return new StreamingTextResponse(stream);
-}
-```
-
-3. Update the `data` in `utils`
-
-```ts
-export const MODELS = [
-  { label: "Claude 3 Haiku", value: "claude-3-haiku-20240307" },
-  { label: "Claude 3 Sonnet", value: "claude-3-sonnet-20240229" },
-  { label: "Claude 3 Opus", value: "claude-3-opus-20240229" },
-];
-```
-
-## Disclaimer
-
-> We recently transitioned from the pages directory to the app directory, which involved significant changes to the project structure and architecture. As a result, you may encounter some inconsistencies or rough edges in the codebase.
-
-### Roadmap
-
-- [x] Images & Videos for Search
-- [x] Upload for Vision Model
-- [x] Chat History for Users
-- [x] Shared Chats & Fork
-- [x] Settings for LLMs
-- [x] Custom OG Metadata
-- [x] Faster API Requests
-- [x] Allow Multiple LLMs
-- [x] Plugin Development
-- [x] Function Calling with Gen UI
-
-### App Architecture
-
-- Language: TypeScript
-- Frontend Framework: React
-- State Management: Redux
-- Web Framework: Next.js
-- Backend and Database: Firebase
-- UI Library: NextUI & Tremor
-- CSS Framework: TailwindCSS
-- AI SDK: Vercel AI SDK
-
-### Services
-
-- LLM: OpenAI
-- Search API: Bing
-- Weather API: OpenWeatherMap
-- Stocks API: Alpha Vantage & Finnhub
-- Dictionary API: WordnikFree Dictionary API
-- Hosting & Analytics: Vercel
-- Authentication, Storage & Database: Firebase
-
-## Contributing
-
-We welcome contributions from the community! If you'd like to contribute to Openpanel, please follow these steps:
-
-1. Fork the repository
-2. Create a new branch for your feature or bug fix
-3. Make your changes and commit them with descriptive messages
-4. Push your changes to your forked repository
-5. Submit a pull request to the main repository
-
-Please ensure that your code follows our coding conventions and passes all tests before submitting a pull request.
-
-## License
-
-This project is licensed under the [AGPL-3.0 license](LICENSE).
-
-## Contact
-
-If you have any questions or suggestions, feel free to reach out to us at [Contact](https://bishalsaha.com/contact).
-
-Happy coding! 🚀
+Feel free to reach out for any additional clarifications or support regarding the project setup or functionality.
