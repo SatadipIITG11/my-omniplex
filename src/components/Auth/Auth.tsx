@@ -164,7 +164,7 @@ const Auth = (props: Props) => {
                     </div>
                   )}
                   <p className="text-[#edededaa] text-xs">
-                    By continuing, you agree to Omniplex's Consumer Terms{" "}
+                    By continuing, you agree to Omniplex&apos;s Consumer Terms{" "}
                   </p>
                   <p className="text-[#edededaa] text-xs">
                     {" "}
