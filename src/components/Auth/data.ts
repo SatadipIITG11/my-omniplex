@@ -1,0 +1,2 @@
+export const data1=[{ques:"Identify code optimizations and performance improvements.",ans:"All set. Here's the optimized code."},{ques:"Can you visualize my sales funnel bar graphs?",ans:"Here's your sales funnel."},{ques:"Claude, create a report to analyze product usage and user feedback.",ans:"Here's the report."},{ques:"Claude, make a content calendar for my marketing campaign.",ans:"All set. Here's the optimized code."}]
+
