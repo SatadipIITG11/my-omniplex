@@ -551,6 +551,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@google/generative-ai@^0.21.0":
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/@google/generative-ai/-/generative-ai-0.21.0.tgz#a5011aab9e6082e706937b26ef23445933fa0d15"
+  integrity sha512-7XhUbtnlkSEZK15kN3t+tzIMxsbKm/dSkKBFalj+20NvPKe1kBY7mR2P7vuijEn+f06z5+A8bVGKO0v39cr6Wg==
+
 "@grpc/grpc-js@~1.9.0":
   version "1.9.14"
   resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.9.14.tgz#236378822876cbf7903f9d61a0330410e8dcc5a1"
@@ -596,6 +601,32 @@
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.1.1.tgz#422deb80c4d6caf3371aec6f4bee8361a354dc13"
   integrity sha512-JyyN9Lo66kirbCMuMMRPtJxtKJoIsXKS569ebHGGRKbl8s4CtUfLnyKJxteA+vIKySocO4s1SkTkGS4xtG/yEA==
+
+"@heroui/react-rsc-utils@2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@heroui/react-rsc-utils/-/react-rsc-utils-2.1.2.tgz#02c463a612034b1abe0d437f9a076759b532e370"
+  integrity sha512-5qaYUj0eX+y8OFvPsv01RdfHZv8Z/do+3tdaDmq/uNFsyDc+lgea9PyqVZbhv6nf4ido/hUlPDB6KAGqiAeKwQ==
+
+"@heroui/react-utils@2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@heroui/react-utils/-/react-utils-2.1.4.tgz#e354296295aebf8f23e6c4286dd98798c5b7ed4f"
+  integrity sha512-aXZtrgrGkW3Z892BQ5crP/ttdpTaNtv5N3UYoH2wVyFiGj+ypYfFkZRB/wppBRgf5hsy5liw+fqC/Yg5n3J8qw==
+  dependencies:
+    "@heroui/react-rsc-utils" "2.1.2"
+    "@heroui/shared-utils" "2.1.3"
+
+"@heroui/shared-utils@2.1.3":
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/@heroui/shared-utils/-/shared-utils-2.1.3.tgz#317403e8d56f7cc90953fa46386286b6b0f85502"
+  integrity sha512-MNpo+jcu6xyicSRyxWgL4rNw4xH0XziUR/bhs01GydlGhfFN8n/Y4vKAWfL5xamehiEJX1N0IKAbFadt3wlGAA==
+
+"@heroui/skeleton@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@heroui/skeleton/-/skeleton-2.2.6.tgz#0a5259b3aadca4e68f05a134b81808b00e099e27"
+  integrity sha512-4loGjGqNhYRMiiFjNle+nSDldWduvW2zZ09J5NpZEWM+cD+0Ipw1kAtPdZZrmMjAAR3SOJhISiPs2KGSmeTZzA==
+  dependencies:
+    "@heroui/react-utils" "2.1.4"
+    "@heroui/shared-utils" "2.1.3"
 
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"

@@ -41,7 +41,7 @@ function MoviePage() {
       setMovies(fetchedMovies);
       const startIndex = (currentPage- 1) * moviesPerPage;
       const endIndex = startIndex + moviesPerPage;
-      setCurrentMovies(movies.slice(startIndex, endIndex));
+      setCurrentMovies(fetchedMovies.slice(startIndex, endIndex));
       setMovies(fetchedMovies);
       setLoading(false);
     };

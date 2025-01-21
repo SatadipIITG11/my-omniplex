@@ -1,5 +1,6 @@
 "use client";
 
+
 import React, { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import styles from "./MainPrompt.module.css";
@@ -231,7 +232,15 @@ const MainPrompt = () => {
       onOpen();
     }
   };
+  const [gemAns,setGemAns]=useState("");
+  const handleTemp=async()=>{
+    const chatId = nanoid();
+    if (!text.trim()) return;
 
+
+    // Redirect to the chat page with slug and first prompt
+    router.push(`/chat/${chatId}?firstPrompt=${encodeURIComponent(text)}`);
+  }
   return (
     <div className={styles.container}>
       <div className={styles.title}>Where Knowledge Evolves</div>
@@ -241,7 +250,8 @@ const MainPrompt = () => {
           className={styles.promptText}
           value={text}
           onChange={handleInput}
-          onKeyDown={handleEnter}
+          // onKeyDown={handleTemp}
+          // onKeyDown={handleEnter}
         />
         <div className={styles.mainRow}>
           <div className={styles.sectionRow}>
@@ -403,7 +413,8 @@ const MainPrompt = () => {
               alt="Arrow"
               width={24}
               height={24}
-              onClick={handleSend}
+              // onClick={handleSend}
+              onClick={handleTemp}
             />
           </div>
         </div>

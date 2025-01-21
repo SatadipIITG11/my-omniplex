@@ -11,9 +11,11 @@
   "dependencies": {
     "@firebase/firestore": "^4.5.0",
     "@firebase/storage": "^0.12.2",
+    "@google/generative-ai": "^0.21.0",
     "@headlessui/react": "^2.0.3",
     "@headlessui/tailwindcss": "^0.2.0",
     "@heroicons/react": "^2.1.1",
+    "@heroui/skeleton": "^2.2.6",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@nextui-org/react": "^2.2.10",
     "@reduxjs/toolkit": "^2.2.3",

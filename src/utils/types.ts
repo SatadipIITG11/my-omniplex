@@ -84,12 +84,6 @@ export type StockType = {
     amount: number;
     percentage: number;
   };
-  // chartData:
-  //   | {
-  //       timestamp: string;
-  //       price: number;
-  //     }[]
-  //   | [];
   marketCap: number;
 };
 

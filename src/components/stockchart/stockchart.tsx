@@ -94,7 +94,7 @@ const StockChart = ({stockData}:any) => {
     plugins: {
       title: {
         display: true,
-        text: "Apple Stock Price",
+        text: stockData.longName,
       },
     },
     scales: {
